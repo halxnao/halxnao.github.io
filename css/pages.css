@@ -1,0 +1,324 @@
+/* ==========================================================
+   HALXNAO — pages.css
+   Homepage hero, app cards, contact, app detail pages.
+   Everything is centred on one vertical axis, so left and
+   right always mirror each other.
+
+   THE BLENDING TRICK: every pixel animation is a <canvas>
+   with a CSS mask. The mask fades the animation to transparent
+   toward its edges, so it melts into the page background
+   instead of sitting in a visible box.
+   ========================================================== */
+
+.tone-green { color: var(--green); }
+.tone-cyan  { color: var(--cyan); }
+.tone-blue  { color: var(--blue); }
+.tone-violet { color: var(--violet); }
+
+.pixels { display: block; width: 100%; pointer-events: none; }
+
+/* A wide animated band that sits under the intro text and fades out on every side */
+.band {
+  height: 140px;
+  -webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 25%, transparent 100%);
+          mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 25%, transparent 100%);
+}
+@media (max-width: 640px) { .band { height: 110px; } }
+
+/* ---------- Intro (homepage) ---------- */
+.hero { border-bottom: 1px solid var(--border); }
+.hero-inner { padding-block: 8px 64px; text-align: center; }
+
+/* Stage: the twinkle grid fills it, the cube sits in the middle */
+.hero-stage { position: relative; display: flex; justify-content: center; align-items: center; height: 380px; }
+.hero-bg {
+  position: absolute; inset: 0; height: 100%; opacity: .7;
+  -webkit-mask-image: radial-gradient(ellipse 48% 50% at 50% 50%, #000 20%, transparent 100%);
+          mask-image: radial-gradient(ellipse 48% 50% at 50% 50%, #000 20%, transparent 100%);
+}
+.logo-cube { position: relative; width: min(320px, 78vw); aspect-ratio: 1; image-rendering: pixelated; }   /* hard pixel edges when scaled up */
+@media (max-width: 640px) { .hero-stage { height: 320px; } }
+.hero h1 {
+  font-family: var(--font-pixel);
+  font-size: clamp(1.5rem, 5vw, 2.25rem);
+  line-height: 1.4;
+  margin-bottom: 24px;
+}
+.hero .lede { max-width: 34em; margin: 0 auto 32px; font-size: 1.1875rem; text-wrap: balance; }
+
+/* ---------- App cards (homepage) ---------- */
+.app-grid {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 24px;   /* a shorter last row stays centred */
+  list-style: none; margin: 0 auto; padding: 0;
+  max-width: 960px;
+}
+.app-grid > li { width: 100%; }
+@media (min-width: 600px) { .app-grid > li { width: calc(50% - 12px); } }
+@media (min-width: 900px) { .app-grid > li { width: calc((100% - 48px) / 3); } }
+
+.app-card {
+  position: relative;              /* lets the title link cover the whole card */
+  display: flex; flex-direction: column; height: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  text-align: center;
+}
+.app-card:hover { border-color: var(--tone-card, var(--green)); background: var(--surface-2); }
+.app-card:has(a:focus-visible) { outline: 3px solid var(--yellow); outline-offset: 3px; }
+
+/* Strip of animation at the top, fading into the card below it */
+.card-strip {
+  height: 72px;
+  -webkit-mask-image: linear-gradient(to bottom, #000 35%, transparent);
+          mask-image: linear-gradient(to bottom, #000 35%, transparent);
+}
+.card-body { display: flex; flex-direction: column; align-items: center; flex: 1; padding: 0 20px 24px; }
+
+.app-card h3 { margin-bottom: 4px; }
+.app-card h3 a { color: var(--text); text-decoration: none; }
+.app-card h3 a::after { content: ""; position: absolute; inset: 0; }   /* whole card clickable */
+.app-card h3 a:focus-visible { outline: none; }
+.app-card .subtitle { color: var(--tone-card, var(--green)); font-size: 0.9375rem; margin-bottom: 12px; }
+.app-card .desc { flex: 1; font-size: 1rem; text-wrap: balance; }
+.app-card .label-row { justify-content: center; }
+.more { font-weight: 700; color: var(--yellow); margin: 0; }
+.more::after { content: " \2192"; }
+
+/* Each card has its own accent colour */
+.card-beatzyy { --tone-card: var(--green); }
+.card-free    { --tone-card: var(--cyan); }
+.card-swiftx  { --tone-card: var(--blue); }
+.card-hibiki  { --tone-card: var(--violet); }
+
+/* Icon slot. Until your real icon is supplied this is a labelled placeholder. Swap for:
+   <img class="app-icon" src="images/beatzyy/icon.png" width="56" height="56" alt="Beatzyy app icon"> */
+.app-icon, .icon-placeholder { width: 56px; height: 56px; margin-bottom: 12px; }
+.app-icon { border: 1px solid var(--border); }
+.icon-placeholder {
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.08em;
+  color: var(--muted); background: var(--bg);
+  border: 1px dashed var(--border);
+}
+
+/* ---------- Upcoming (one centred card) ---------- */
+.upcoming-card { max-width: 420px; margin-inline: auto; }
+.upcoming-card .app-card { border-style: dashed; }
+.label-soon { color: var(--yellow); border-color: #6b5a22; }
+
+/* ---------- Contact ---------- */
+.contact-box {
+  max-width: 560px; margin-inline: auto; text-align: center;
+  background: var(--surface); border: 1px solid var(--border); padding: 32px 24px;
+}
+.contact-email {
+  display: inline-block;
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 1.0625rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 4px 12px;
+  margin-bottom: 16px;
+  user-select: all;                 /* one click selects the whole address */
+  overflow-wrap: anywhere;
+}
+
+/* ---------- App detail pages ---------- */
+.breadcrumb { padding-block: 12px; font-size: 0.9375rem; line-height: 1.5; }
+.breadcrumb ol { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0 8px; color: var(--muted); }
+/* every item is a flex box with the same padding, so links and the current page share one baseline */
+.breadcrumb li { display: flex; align-items: center; padding-block: 6px; }
+.breadcrumb li + li::before { content: "/"; margin-right: 8px; }
+.breadcrumb a { display: inline; }
+
+.app-hero { border-bottom: 1px solid var(--border); }
+.app-hero .band { margin-top: 24px; }
+.app-intro { display: flex; flex-direction: column; align-items: center; text-align: center; padding-top: 24px; }
+.app-intro .app-icon, .app-intro .icon-placeholder { width: 96px; height: 96px; margin-bottom: 24px; }
+.app-intro h1 {
+  font-family: var(--font-pixel);
+  font-size: clamp(1.25rem, 4vw, 1.75rem);
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+.app-tagline { color: var(--tone); font-weight: 600; margin-bottom: 16px; }
+.app-intro p { max-width: 38em; text-wrap: balance; }
+.app-intro .label-row { justify-content: center; }
+
+.edition-note {
+  max-width: 46em; margin-inline: auto; text-align: center;
+  background: var(--surface); border: 1px solid var(--border); border-top: 4px solid var(--yellow);
+  padding: 16px 24px;
+}
+.edition-note p { margin: 0; text-wrap: balance; }
+
+/* Features: equal tiles in two columns; a lone last tile is centred */
+.feature-list {
+  list-style: none; margin: 0 auto; padding: 0; max-width: 860px;
+  display: grid; grid-template-columns: 1fr; gap: 16px;
+}
+@media (min-width: 700px) {
+  .feature-list { grid-template-columns: 1fr 1fr; }
+  .feature-list li:last-child:nth-child(odd) { grid-column: 1 / -1; justify-self: center; width: calc(50% - 8px); }
+}
+.feature-list li {
+  display: flex; align-items: flex-start; gap: 16px;
+  padding: 16px 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+.feature-list li::before { margin-top: calc((1.6em - var(--ch) * var(--u)) / 2); }
+
+/* Screenshots */
+.shot-group {
+  text-align: center; color: var(--muted);
+  font-size: 0.9375rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  margin: 0 0 16px;
+}
+.shot-grid + .shot-group { margin-top: 40px; }
+.shot-grid {
+  display: grid; gap: 24px; margin: 0 auto; padding: 0; list-style: none;
+  grid-template-columns: repeat(2, 1fr);
+}
+/* 4 per row on wide screens, 2 on small; a shorter last row is centred, not left-aligned */
+.shot-grid-4 { display: flex; flex-wrap: wrap; justify-content: center; }
+.shot-grid-4 > li { width: calc(50% - 12px); }
+@media (min-width: 900px) { .shot-grid-4 > li { width: calc(25% - 18px); } }
+.shot-grid-wide  { max-width: 880px; }
+.shot-grid-phone { max-width: 520px; }
+@media (max-width: 599px) { .shot-grid-wide { grid-template-columns: 1fr; } }
+
+.shot { margin: 0; }
+.shot img, .shot-placeholder {
+  width: 100%; height: auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+.shot-placeholder {
+  aspect-ratio: 9 / 19.5;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; padding: 16px;
+  font-size: 0.8125rem; color: var(--muted);
+  border-style: dashed;
+}
+.shot figcaption { margin-top: 8px; font-size: 0.875rem; color: var(--muted); text-align: center; }
+
+/* Availability: each fact is its own centred block, with a thin line between them */
+.panel {
+  max-width: 720px; margin-inline: auto;
+  background: var(--surface); border: 1px solid var(--border); padding: 24px;
+}
+.facts { margin: 0; display: flex; flex-wrap: wrap; justify-content: center; }
+.facts > div { padding: 4px 32px; text-align: center; }
+.facts > div + div { border-left: 1px solid var(--border); }
+.facts dt { color: var(--muted); font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 4px; }
+.facts dd { margin: 0; font-weight: 600; }
+@media (max-width: 599px) {
+  .facts { flex-direction: column; gap: 16px; }
+  .facts > div { width: 100%; padding-inline: 0; }
+  .facts > div + div { border-left: 0; border-top: 1px solid var(--border); padding-top: 16px; }
+}
+.small-note { color: var(--muted); font-size: 0.9375rem; text-align: center; margin: 24px 0 0; text-wrap: balance; }
+
+.link-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; justify-items: center; }
+.link-list a { display: inline-block; padding-block: 4px; }
+
+/* ==========================================================
+   MOTION: small transitions so the page feels alive.
+   All of it is switched off for visitors who ask for reduced
+   motion (see the last block in style.css).
+   ========================================================== */
+
+/* Page fades in once on load (pure CSS, works without JS) */
+main { animation: page-in 400ms ease-out both; }
+@keyframes page-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+/* Hover / focus transitions */
+a, .nav-list a, .wordmark, .btn, .label, .app-card, .feature-list li, .shot img, .shot-open {
+  transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease,
+              box-shadow 160ms ease, transform 160ms ease;
+}
+.app-card:hover, .app-card:focus-within { transform: translateY(-4px); box-shadow: 0 6px 0 var(--tone-card, var(--green)); }
+.app-card .app-icon { transition: transform 200ms ease; }
+.app-card:hover .app-icon { transform: scale(1.08); }
+.feature-list li:hover { border-color: var(--tone); transform: translateX(4px); }
+.shot-open:hover img, .shot-open:focus-visible img { border-color: var(--tone, var(--yellow)); transform: translateY(-4px); }
+
+/* Scroll reveal: JS adds .reveal-ready to <html> (only when motion is allowed) and
+   .is-visible to each item as it scrolls into view. --i staggers neighbours. */
+.reveal-ready .reveal { opacity: 0; transform: translateY(16px); transition: opacity 500ms ease, transform 500ms ease; transition-delay: calc(var(--i, 0) * 70ms); }
+.reveal-ready .reveal.is-visible { opacity: 1; transform: none; }
+/* once revealed, hover transitions must not be delayed */
+.reveal-ready .reveal.is-visible.app-card, .reveal-ready .reveal.is-visible.feature-list li { transition-delay: 0ms; }
+
+/* ---------- Screenshots: uniform frames for tall phone screens ---------- */
+.shot-grid-tall .shot img { aspect-ratio: 9 / 19; object-fit: contain; background: #141414; }
+
+/* Screenshot as a button (added by JS) */
+.shot-open {
+  display: block; width: 100%; padding: 0; margin: 0;
+  background: none; border: 0; font: inherit; color: inherit; cursor: zoom-in;
+}
+.shot-open:focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
+.shot-open::after {          /* little "enlarge" hint in the corner */
+  content: "+"; position: absolute; right: 8px; top: 8px;
+  width: 28px; height: 28px; line-height: 26px; text-align: center; font-weight: 700;
+  background: rgba(13,17,32,.85); border: 1px solid var(--border); color: var(--text);
+  opacity: 0; transition: opacity 160ms ease;
+}
+.shot { position: relative; }
+.shot-open:hover::after, .shot-open:focus-visible::after { opacity: 1; }
+@media (hover: none) { .shot-open::after { opacity: 1; } }
+
+/* ---------- Full-size viewer (a native <dialog>) ---------- */
+.lightbox {
+  width: 100vw; max-width: 100vw; height: 100dvh; max-height: 100dvh;
+  margin: 0; padding: 0; border: 0;
+  background: rgba(8, 11, 22, .94); color: var(--text);
+}
+.lightbox[open] { display: flex; flex-direction: column; align-items: center; justify-content: center; animation: lb-in 220ms ease-out; }
+.lightbox::backdrop { background: transparent; }
+@keyframes lb-in { from { opacity: 0; } to { opacity: 1; } }
+.lb-figure { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 12px; max-width: 100%; padding: 56px 72px 16px; }
+.lb-img { max-width: 100%; max-height: calc(100dvh - 140px); width: auto; height: auto; border: 1px solid var(--border); background: #141414; touch-action: pan-y; }
+.lb-img.is-swapping { animation: lb-swap 240ms ease-out; }
+@keyframes lb-swap { from { opacity: 0; transform: scale(.97); } to { opacity: 1; transform: none; } }
+.lb-caption { margin: 0; text-align: center; color: var(--muted); font-size: .9375rem; }
+.lb-caption b { color: var(--text); }
+.lb-btn {
+  position: absolute; width: 48px; height: 48px;
+  display: flex; align-items: center; justify-content: center;
+  font: inherit; font-size: 1.5rem; line-height: 1; cursor: pointer;
+  color: var(--text); background: var(--surface); border: 1px solid var(--border);
+}
+.lb-btn:hover { border-color: var(--yellow); color: var(--yellow); }
+.lb-btn:focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
+.lb-close { top: 12px; right: 12px; }
+.lb-prev  { left: 12px;  top: 50%; margin-top: -24px; }
+.lb-next  { right: 12px; top: 50%; margin-top: -24px; }
+.lb-btn[hidden] { display: none; }
+@media (max-width: 640px) {
+  .lb-figure { padding: 64px 12px 16px; }
+  .lb-prev, .lb-next { top: auto; bottom: 12px; margin: 0; }
+}
+
+/* ---------- Download: one official link, then mirrors ---------- */
+.dl-block { max-width: 720px; margin-inline: auto; text-align: center; }
+.dl-group { margin: 0 auto 32px; }
+.dl-label { margin: 0 0 8px; color: var(--muted); font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+.dl-main-row { margin: 0 0 24px; }
+.dl-mirrors { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+.dl[aria-disabled="true"] { cursor: not-allowed; }
+
+/* ---------- Terms of Service pages: plain, readable text ---------- */
+.legal { max-width: 46em; margin: 0 auto; padding-block: 24px 64px; }
+.legal h1 { font-family: var(--font-pixel); font-size: clamp(1.125rem, 3.5vw, 1.5rem); line-height: 1.5; margin: 0 0 8px; text-align: center; }
+.legal-app { text-align: center; color: var(--tone); font-weight: 600; margin: 0 0 4px; }
+.legal-date { text-align: center; color: var(--muted); font-size: 0.9375rem; margin: 0 0 32px; }
+.legal h2 { font-size: 1.125rem; margin: 32px 0 8px; }
+.legal p, .legal li { max-width: none; }
+.legal ul { padding-left: 1.25em; }
+.legal li { margin-bottom: 8px; }
+.legal-list { list-style: none; padding-left: 0; margin-block: 24px; }
+.legal-list li { margin: 0; }
+.terms-link { margin-top: 16px; }

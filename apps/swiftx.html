@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SwiftX — Encrypted File Transfer | HALXNAO</title>
+  <meta name="description" content="SwiftX is a file-transfer application for transferring files between compatible devices over a local connection, with AES-based encryption. Desktop and command-line versions, with Android coming soon.">
+  <!-- Pages inside /apps use ../ to reach the shared folders -->
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/pages.css">
+  <script src="../js/main.js" defer></script>
+  <script src="../js/pixels.js" defer></script>
+</head>
+<body class="theme-swiftx">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="wordmark" href="../index.html">HALXNAO</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../index.html#apps" aria-current="page">Apps</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="app-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../index.html#apps">Apps</a></li>
+            <li aria-current="page">SwiftX</li>
+          </ol>
+        </nav>
+
+        <div class="app-intro">
+          <img class="app-icon" src="../images/swiftx/icon.png" width="96" height="96" alt="SwiftX app icon: two curved arrows forming an S">
+          <h1>SwiftX</h1>
+          <p class="app-tagline">Encrypted File Transfer</p>
+          <p>SwiftX is a file-transfer application for transferring files between compatible devices over a local connection. It uses AES-based encryption to protect transferred data and provides desktop and command-line versions. An Android version is coming soon.</p>
+          <ul class="label-row">
+              <li class="label">Desktop</li>
+              <li class="label">Command line</li>
+              <li class="label label-soon">Android: coming soon</li>
+              <li class="label label-free">GitHub Releases</li>
+          </ul>
+            <a class="btn" href="https://github.com/halxnao/swiftx-releases" rel="noopener">Download on GitHub</a>
+        </div>
+      </div>
+      <!-- Decorative pixel animation, faded into the page by a CSS mask -->
+      <canvas class="pixels band tone-blue" data-mode="transfer" data-cell="10" aria-hidden="true"></canvas>
+    </section>
+
+    <div class="container">
+
+      <section class="section" aria-labelledby="features-title">
+        <h2 class="section-title" id="features-title">Features</h2>
+        <ul class="feature-list">
+          <li>AES-encrypted file transfers.</li>
+          <li>Support for large files.</li>
+          <li>Android application (coming soon).</li>
+          <li>Desktop graphical interface.</li>
+          <li>Command-line version.</li>
+          <li>Local-first transfer workflow without requiring cloud storage as an intermediary.</li>
+          <li>Transfer progress where supported by the interface.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="shots-title">
+        <h2 class="section-title" id="shots-title">Screenshots</h2>
+        <h3 class="shot-group">Desktop</h3>
+        <ul class="shot-grid shot-grid-wide">
+            <li><figure class="shot"><img src="../images/swiftx/desktop-home.webp" width="960" height="941" loading="lazy" alt="SwiftX desktop home screen with Send a File and Receive a File buttons and the current Wi-Fi connection shown"><figcaption>Home</figcaption></figure></li>
+            <li><figure class="shot"><img src="../images/swiftx/desktop-send.webp" width="960" height="943" loading="lazy" alt="SwiftX desktop Send a File screen with receiver scan, IP address and port fields, file chooser, Send button and a log"><figcaption>Send a file</figcaption></figure></li>
+        </ul>
+        <h3 class="shot-group">Android</h3>
+        <ul class="shot-grid shot-grid-phone">
+            <li><figure class="shot"><img src="../images/swiftx/android-send.webp" width="600" height="1304" loading="lazy" alt="SwiftX Android Send a file screen with a file picker, a Find nearby devices button and device address and port fields"><figcaption>Send a file</figcaption></figure></li>
+            <li><figure class="shot"><img src="../images/swiftx/android-receive.webp" width="600" height="1306" loading="lazy" alt="SwiftX Android Receive a file screen showing that the app is waiting for a file, with this device's address and port and a Stop listening button"><figcaption>Receive a file</figcaption></figure></li>
+        </ul>
+      </section>
+
+      <!-- TODO: replace every https://YOUR_..._LINK below with the real link. Until you do, the button shows as "Coming soon".
+           To switch one off again, add the word data-soon to the <a>. -->
+      <section class="section" aria-labelledby="dl-title">
+        <h2 class="section-title" id="dl-title">Download</h2>
+        <div class="dl-block">
+          <p class="small-note" style="margin:0 0 24px">The official source comes first in each group. Mirrors are the same files, for when the main link does not work for you.</p>
+          <h3 class="shot-group">Android</h3>
+          <div class="dl-group">
+            <p class="dl-label">Official</p>
+            <p class="dl-main-row"><a class="btn dl" href="https://YOUR_SWIFTX_PLAY_LINK" rel="noopener" data-soon>Google Play</a></p>
+            <p class="dl-label">Mirrors</p>
+            <ul class="dl-mirrors">
+              <li><a class="btn dl btn-secondary" href="https://YOUR_SWIFTX_ANDROID_GITHUB_LINK" rel="noopener">GitHub Releases</a></li>
+              <li><a class="btn dl btn-secondary" href="https://YOUR_SWIFTX_ANDROID_DRIVE_LINK" rel="noopener">Google Drive</a></li>
+            </ul>
+          </div>
+          <h3 class="shot-group">PC</h3>
+          <div class="dl-group">
+            <p class="dl-label">Official</p>
+            <p class="dl-main-row"><a class="btn dl" href="https://github.com/halxnao/swiftx-releases" rel="noopener">GitHub Releases</a></p>
+            <p class="dl-label">Mirrors</p>
+            <ul class="dl-mirrors">
+              <li><a class="btn dl btn-secondary" href="https://mega.nz/folder/qlgVybzC#wDP-XTk7fAKhxVh8cDYQ7Q" rel="noopener">MEGA</a></li>
+              <li><a class="btn dl btn-secondary" href="https://drive.google.com/drive/folders/19Yns7MJKhc8eNZu1898RKxCslXSc5dNV?usp=sharing" rel="noopener">Google Drive</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section class="section" aria-labelledby="avail-title">
+        <h2 class="section-title" id="avail-title">Availability</h2>
+        <div class="panel">
+          <dl class="facts">
+            <div><dt>Platforms</dt><dd>Desktop, command line (Android coming soon)</dd></div>
+            <div><dt>Download</dt><dd>GitHub Releases</dd></div>
+          </dl>
+          <p class="small-note">Desktop downloads are in the Download section above. Android is coming soon. All releases are on the <a href="https://github.com/halxnao/swiftx-releases" rel="noopener">SwiftX releases page</a>.</p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="more-title">
+        <h2 class="section-title" id="more-title">More from HALXNAO</h2>
+        <ul class="link-list">
+          <li><a href="beatzyy.html">Beatzyy &mdash; Slowed Reverb Player</a></li>
+          <li><a href="beatzyy-free.html">Beatzyy Free Edition</a></li>
+          <li><a href="hibiki.html">Hibiki &mdash; Desktop Player with Audio Effects</a></li>
+          <li><a href="../terms/swiftx.html">Terms of Service</a></li>
+          <li><a href="../index.html">Back to homepage</a></li>
+        </ul>
+      </section>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year">2026</span> HALXNAO</p>
+      <ul class="footer-links">
+        <li><a href="beatzyy.html">Beatzyy</a></li>
+        <li><a href="beatzyy-free.html">Beatzyy Free</a></li>
+        <li><a href="swiftx.html">SwiftX</a></li>
+        <li><a href="hibiki.html">Hibiki</a></li>
+        <li><a href="../terms/index.html">Terms</a></li>
+      </ul>
+      <!-- TODO: paste your YouTube and LinkedIn URLs in place of YOUR_YOUTUBE_LINK / YOUR_LINKEDIN_LINK. Until then those two are hidden automatically. -->
+      <ul class="footer-social" aria-label="HALXNAO on the web">
+        <li><a class="s-youtube" href="https://YOUR_YOUTUBE_LINK" rel="noopener me">YouTube</a></li>
+        <li><a class="s-instagram" href="https://www.instagram.com/halxnao/" rel="noopener me">Instagram</a></li>
+        <li><a class="s-github" href="https://github.com/halxnao" rel="noopener me">GitHub</a></li>
+        <li><a class="s-linkedin" href="https://YOUR_LINKEDIN_LINK" rel="noopener me">LinkedIn</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>

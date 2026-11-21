@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hibiki — Desktop Player with Audio Effects | HALXNAO</title>
+  <meta name="description" content="Hibiki is a desktop app built with JavaFX. It applies audio effects in real time to video and music and includes an audio export section.">
+  <!-- Pages inside /apps use ../ to reach the shared folders -->
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/pages.css">
+  <script src="../js/main.js" defer></script>
+  <script src="../js/pixels.js" defer></script>
+</head>
+<body class="theme-hibiki">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="wordmark" href="../index.html">HALXNAO</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../index.html#apps" aria-current="page">Apps</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="app-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../index.html#apps">Apps</a></li>
+            <li aria-current="page">Hibiki</li>
+          </ol>
+        </nav>
+
+        <div class="app-intro">
+          <img class="app-icon" src="../images/hibiki/icon.png" width="96" height="96" alt="Hibiki app icon: headphones around a play button">
+          <h1>Hibiki</h1>
+          <p class="app-tagline">Desktop player with audio effects</p>
+          <p>Hibiki is a desktop application built with JavaFX. It brings the audio effects from Beatzyy to the desktop and applies them in real time to video as well as music, and it includes an export section for saving audio files with your effects applied.</p>
+          <ul class="label-row">
+            <li class="label">Desktop</li>
+            <li class="label">JavaFX</li>
+            <li class="label label-free">GitHub Releases</li>
+          </ul>
+          <a class="btn" href="https://github.com/halxnao/hibiki-releases" rel="noopener">Download on GitHub</a>
+        </div>
+      </div>
+      <!-- Decorative pixel animation, faded into the page by a CSS mask -->
+      <canvas class="pixels band tone-violet" data-mode="player" data-cell="10" aria-hidden="true"></canvas>
+    </section>
+
+    <div class="container">
+
+      <section class="section" aria-labelledby="features-title">
+        <h2 class="section-title" id="features-title">Features</h2>
+        <ul class="feature-list">
+          <li>The audio effects from Beatzyy, including bass boost and reverb with room presets.</li>
+          <li>Effects applied in real time to video playback as well as audio.</li>
+          <li>Video and audio playlists, with files added by button, folder or drag and drop.</li>
+          <li>Shuffle, repeat, volume, full screen and light and dark themes.</li>
+          <li>Export section that turns videos and music into audio files with your effects applied.</li>
+          <li>Export choices for format, save location, naming and what to do if a file already exists.</li>
+          <li>Several exports can run at once.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="shots-title">
+        <h2 class="section-title" id="shots-title">Screenshots</h2>
+        <!-- The two screenshots that show a video carry a credit that appears, as a link, in the full-size viewer (data-credit / data-credit-url). -->
+        <ul class="shot-grid shot-grid-wide">
+          <li><figure class="shot"><img src="../images/hibiki/player.webp" width="1400" height="805" loading="lazy" alt="Hibiki player in the dark theme with an empty video area reading Nothing playing, a Videos and Audio list on the right, playback controls and Bass boost and Reverb controls along the bottom"><figcaption>Player</figcaption></figure></li>
+          <li><figure class="shot" data-credit="Video by Kav (@Kavlomakaronas)" data-credit-url="https://youtu.be/wt6y2DV8eoI"><img src="../images/hibiki/playing.webp" width="1400" height="807" loading="lazy" alt="Hibiki playing a video in the light theme, with the playlist of 64 videos on the right, playback controls and the Bass boost and Reverb controls along the bottom"><figcaption>Playing a video</figcaption></figure></li>
+          <li><figure class="shot" data-credit="Video by Kav (@Kavlomakaronas)" data-credit-url="https://youtu.be/wt6y2DV8eoI"><img src="../images/hibiki/fullscreen.webp" width="1400" height="876" loading="lazy" alt="Hibiki playing a video in full screen with the playback controls and the Bass boost and Reverb controls over the picture"><figcaption>Full screen</figcaption></figure></li>
+          <li><figure class="shot"><img src="../images/hibiki/export.webp" width="1400" height="808" loading="lazy" alt="Hibiki Export audio screen with a list of files to export, format and save location options, sound choices with bass boost and reverb sliders, naming options and an Export button"><figcaption>Export audio</figcaption></figure></li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="dl-title">
+        <h2 class="section-title" id="dl-title">Download</h2>
+        <div class="dl-block">
+          <p class="small-note" style="margin:0 0 24px">GitHub Releases is the official source. The mirrors are the same files, for when the main link does not work for you.</p>
+          <div class="dl-group">
+            <p class="dl-label">Official</p>
+            <p class="dl-main-row"><a class="btn dl" href="https://github.com/halxnao/hibiki-releases" rel="noopener">GitHub Releases</a></p>
+            <p class="dl-label">Mirrors</p>
+            <ul class="dl-mirrors">
+              <li><a class="btn dl btn-secondary" href="https://drive.google.com/drive/folders/1nKsW_7nchqcojbEJsDxeE3xpWfJOCDyU?usp=sharing" rel="noopener">Google Drive</a></li>
+              <li><a class="btn dl btn-secondary" href="https://mega.nz/folder/z15WGJZK#GvVScHm9vOXDoKWWG_NLuw" rel="noopener">MEGA</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section class="section" aria-labelledby="avail-title">
+        <h2 class="section-title" id="avail-title">Availability</h2>
+        <div class="panel">
+          <dl class="facts">
+            <div><dt>Platform</dt><dd>Desktop</dd></div>
+            <div><dt>Built with</dt><dd>JavaFX</dd></div>
+            <div><dt>Download</dt><dd>GitHub Releases</dd></div>
+          </dl>
+          <p class="small-note">Looking for the Android music player? See <a href="beatzyy.html">Beatzyy</a>.</p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="more-title">
+        <h2 class="section-title" id="more-title">More from HALXNAO</h2>
+        <ul class="link-list">
+          <li><a href="beatzyy.html">Beatzyy &mdash; Slowed Reverb Player</a></li>
+          <li><a href="beatzyy-free.html">Beatzyy Free Edition</a></li>
+          <li><a href="swiftx.html">SwiftX &mdash; Encrypted File Transfer</a></li>
+          <li><a href="../terms/hibiki.html">Terms of Service</a></li>
+          <li><a href="../index.html">Back to homepage</a></li>
+        </ul>
+      </section>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year">2026</span> HALXNAO</p>
+      <ul class="footer-links">
+        <li><a href="beatzyy.html">Beatzyy</a></li>
+        <li><a href="beatzyy-free.html">Beatzyy Free</a></li>
+        <li><a href="swiftx.html">SwiftX</a></li>
+        <li><a href="hibiki.html">Hibiki</a></li>
+        <li><a href="../terms/index.html">Terms</a></li>
+      </ul>
+      <!-- TODO: paste your YouTube and LinkedIn URLs in place of YOUR_YOUTUBE_LINK / YOUR_LINKEDIN_LINK. Until then those two are hidden automatically. -->
+      <ul class="footer-social" aria-label="HALXNAO on the web">
+        <li><a class="s-youtube" href="https://YOUR_YOUTUBE_LINK" rel="noopener me">YouTube</a></li>
+        <li><a class="s-instagram" href="https://www.instagram.com/halxnao/" rel="noopener me">Instagram</a></li>
+        <li><a class="s-github" href="https://github.com/halxnao" rel="noopener me">GitHub</a></li>
+        <li><a class="s-linkedin" href="https://YOUR_LINKEDIN_LINK" rel="noopener me">LinkedIn</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>

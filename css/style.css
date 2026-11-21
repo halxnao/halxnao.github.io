@@ -1,0 +1,225 @@
+/* ==========================================================
+   HALXNAO — style.css
+   Shared foundation: tokens, base, header, footer, buttons,
+   labels. Loaded on every page. Kept deliberately plain.
+   Everything is spaced on a 4px grid.
+   ========================================================== */
+
+/* ---------- 1. Fonts (self-hosted, SIL Open Font License) ----------
+   The pixel font is used only for the wordmark and page titles.
+   Everything else uses the system font, so text stays easy to read. */
+@font-face {
+  font-family: "Press Start 2P";
+  src: url("../fonts/press-start-2p-latin-400-normal.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+
+/* ---------- 2. Design tokens ---------- */
+:root {
+  --bg:        #0d1120;
+  --surface:   #141a2f;
+  --surface-2: #1a2240;
+  --border:    #2a3558;
+  --text:      #f1ead8;
+  --muted:     #a9b2cc;
+  --green:     #6fb27a;
+  --cyan:      #39c5cf;
+  --blue:      #7aa2ec;
+  --yellow:    #f2c14e;
+  --violet:    #9a8cf2;
+  --yellow-dk: #8a6a17;
+  --ink:       #0d1120;  /* dark text on yellow buttons */
+
+  /* Pixel bullets. Each is a tiny SVG used as a mask, so the colour comes from --tone.
+     --cw / --ch = width / height in pixel cells, --u = size of one cell. */
+  --b-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 5' shape-rendering='crispEdges'%3E%3Cpath d='M0 0h1v5h-1zM1 1h1v3h-1zM2 2h1v1h-1z'/%3E%3C/svg%3E");
+  --b-note:  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 5 6' shape-rendering='crispEdges'%3E%3Cpath d='M3 0h1v5h-1zM4 1h1v2h-1zM1 4h3v2h-3z'/%3E%3C/svg%3E");
+  --b-bars:  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 5 5' shape-rendering='crispEdges'%3E%3Cpath d='M0 2h1v3h-1zM2 0h1v5h-1zM4 1h1v4h-1z'/%3E%3C/svg%3E");
+  --b-wave:  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 5 5' shape-rendering='crispEdges'%3E%3Cpath d='M0 2h1v1h-1zM1 1h1v3h-1zM2 0h1v5h-1zM3 1h1v3h-1zM4 2h1v1h-1z'/%3E%3C/svg%3E");
+  --b-file:  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5' shape-rendering='crispEdges'%3E%3Cpath d='M0 0h3v1h1v4h-4z'/%3E%3C/svg%3E");
+
+  /* Default bullet (homepage): a small arrow in the highlight colour */
+  /* Pixel-art social icons (10x10 cells), drawn as masks so they take the text colour */
+  --i-youtube: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10' shape-rendering='crispEdges'%3E%3Cpath d='M1 2h8v1h-8zM0 3h10v1h-10zM0 4h4v1h-4zM5 4h5v1h-5zM0 5h4v1h-4zM6 5h4v1h-4zM0 6h4v1h-4zM6 6h4v1h-4zM0 7h4v1h-4zM5 7h5v1h-5zM0 8h10v1h-10zM1 9h8v1h-8z'/%3E%3C/svg%3E");
+  --i-instagram: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10' shape-rendering='crispEdges'%3E%3Cpath d='M1 0h8v1h-8zM0 1h1v1h-1zM9 1h1v1h-1zM0 2h1v1h-1zM7 2h1v1h-1zM9 2h1v1h-1zM0 3h1v1h-1zM3 3h4v1h-4zM9 3h1v1h-1zM0 4h1v1h-1zM2 4h1v1h-1zM7 4h1v1h-1zM9 4h1v1h-1zM0 5h1v1h-1zM2 5h1v1h-1zM7 5h1v1h-1zM9 5h1v1h-1zM0 6h1v1h-1zM3 6h4v1h-4zM9 6h1v1h-1zM0 7h1v1h-1zM9 7h1v1h-1zM0 8h1v1h-1zM9 8h1v1h-1zM1 9h8v1h-8z'/%3E%3C/svg%3E");
+  --i-github: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10' shape-rendering='crispEdges'%3E%3Cpath d='M0 0h2v1h-2zM8 0h2v1h-2zM0 1h3v1h-3zM7 1h3v1h-3zM1 2h8v1h-8zM0 3h10v1h-10zM0 4h2v1h-2zM3 4h4v1h-4zM8 4h2v1h-2zM0 5h10v1h-10zM1 6h8v1h-8zM2 7h6v1h-6zM3 8h4v1h-4zM2 9h1v1h-1zM4 9h2v1h-2zM7 9h1v1h-1z'/%3E%3C/svg%3E");
+  --i-linkedin: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10' shape-rendering='crispEdges'%3E%3Cpath d='M1 0h8v1h-8zM0 1h10v1h-10zM0 2h2v1h-2zM3 2h7v1h-7zM0 3h10v1h-10zM0 4h2v1h-2zM3 4h1v1h-1zM7 4h3v1h-3zM0 5h2v1h-2zM3 5h1v1h-1zM5 5h2v1h-2zM8 5h2v1h-2zM0 6h2v1h-2zM3 6h1v1h-1zM5 6h2v1h-2zM8 6h2v1h-2zM0 7h2v1h-2zM3 7h1v1h-1zM5 7h2v1h-2zM8 7h2v1h-2zM0 8h10v1h-10zM1 9h8v1h-8z'/%3E%3C/svg%3E");
+
+  --bullet: var(--b-arrow);
+  --cw: 3; --ch: 5; --u: 3px;
+  --tone: var(--yellow);
+
+  --font-pixel: "Press Start 2P", "Courier New", ui-monospace, monospace;
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Each app page picks its own bullet shape and colour (see the <body> class) */
+.theme-beatzyy { --bullet: var(--b-note); --cw: 5; --ch: 6; --tone: var(--green); }
+.theme-free    { --bullet: var(--b-bars); --cw: 5; --ch: 5; --tone: var(--cyan); }
+.theme-hibiki  { --bullet: var(--b-wave); --cw: 5; --ch: 5; --tone: var(--violet); }
+.theme-swiftx  { --bullet: var(--b-file); --cw: 4; --ch: 5; --tone: var(--blue); }
+
+/* ---------- 3. Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+h1, h2, h3 { line-height: 1.3; margin: 0 0 16px; }
+h2 { font-size: 1.375rem; }
+h3 { font-size: 1.125rem; }
+p  { margin: 0 0 16px; }
+
+a { color: var(--blue); }
+a:hover { color: var(--yellow); }
+
+:focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
+
+.container { width: 100%; max-width: 1000px; margin-inline: auto; padding-inline: 24px; }
+.section { padding-block: 48px; }
+
+.skip-link {
+  position: absolute; left: 16px; top: -100px; z-index: 100;
+  background: var(--yellow); color: var(--ink);
+  padding: 8px 16px; font-weight: 700;
+}
+.skip-link:focus { top: 16px; }
+
+/* Pixel bullet. Used before list items and on both sides of section titles. */
+.pixel-bullet, .section-title::before, .section-title::after, .feature-list li::before {
+  content: "";
+  flex: none;
+  width: calc(var(--cw) * var(--u));
+  height: calc(var(--ch) * var(--u));
+  background: var(--tone);
+  -webkit-mask: var(--bullet) center / 100% 100% no-repeat;
+          mask: var(--bullet) center / 100% 100% no-repeat;
+}
+.section-title {
+  display: flex; align-items: center; justify-content: center;
+  gap: 16px; text-align: center; margin-bottom: 32px;
+}
+.section-title::after { transform: scaleX(-1); }   /* mirror it so the title is symmetric */
+
+/* ---------- 4. Header ---------- */
+.site-header { border-bottom: 1px solid var(--border); }
+.header-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 16px; padding-block: 16px;
+}
+@media (min-width: 601px) {
+  .header-inner { flex-direction: column; gap: 4px; padding-block: 20px 12px; }
+}
+
+.wordmark {
+  font-family: var(--font-pixel);
+  font-size: 1.125rem;
+  color: var(--text);
+  text-decoration: none;
+}
+.wordmark:hover { color: var(--green); }
+
+.nav-list { display: flex; gap: 8px; list-style: none; margin: 0; padding: 0; }
+.nav-list a {
+  display: block;
+  padding: 8px 12px;
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+.nav-list a:hover { color: var(--text); border-bottom-color: var(--green); }
+.nav-list a[aria-current="page"] { color: var(--text); border-bottom-color: var(--yellow); }
+
+/* Hidden unless JavaScript runs, so without JS the menu is always visible */
+.nav-toggle {
+  display: none;
+  font: inherit; font-weight: 600;
+  color: var(--text); background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 8px 16px; min-height: 44px; cursor: pointer;
+}
+.nav-toggle:hover { border-color: var(--green); }
+
+@media (max-width: 600px) {
+  .js .nav-toggle { display: inline-block; }
+  .js .site-nav { display: none; width: 100%; }
+  .js .site-nav.is-open { display: block; }
+  .nav-list { flex-direction: column; gap: 0; }
+  .nav-list a { padding-block: 12px; }
+  .site-nav { width: 100%; }
+}
+
+/* ---------- 5. Buttons ----------
+   Flat, square, with a solid "step" underneath that disappears on press. */
+.btn {
+  display: inline-block;
+  font: inherit; font-weight: 700;
+  text-decoration: none;
+  color: var(--ink);
+  background: var(--yellow);
+  padding: 10px 24px;
+  min-height: 44px;
+  margin-bottom: 4px;
+  box-shadow: 0 4px 0 var(--yellow-dk);
+}
+.btn:hover { color: var(--ink); background: #ffd873; }
+.btn:active, .btn:hover { transform: translateY(2px); box-shadow: 0 2px 0 var(--yellow-dk); }
+
+.btn-secondary {
+  color: var(--text); background: var(--surface-2);
+  box-shadow: 0 4px 0 var(--border);
+}
+.btn-secondary:hover { color: var(--yellow); background: var(--surface-2); box-shadow: 0 2px 0 var(--border); }
+
+/* Not available yet: looks inert and is not a link */
+.btn-disabled {
+  color: var(--muted); background: var(--surface);
+  border: 1px dashed var(--border);
+  box-shadow: none; cursor: not-allowed;
+}
+.btn-disabled:hover { color: var(--muted); background: var(--surface); transform: none; box-shadow: none; }
+
+/* ---------- 6. Labels ---------- */
+.label-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 16px; padding: 0; list-style: none; }
+.label {
+  font-size: 0.8125rem; font-weight: 600;
+  padding: 2px 8px;
+  color: var(--muted);
+  border: 1px solid var(--border);
+}
+.label-paid { color: var(--yellow); border-color: var(--yellow-dk); }
+.label-free { color: var(--green);  border-color: #2e6a47; }
+
+/* ---------- 7. Footer (centred) ---------- */
+.site-footer { border-top: 1px solid var(--border); padding-block: 32px; font-size: 0.9375rem; color: var(--muted); text-align: center; }
+.footer-inner { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.footer-inner p { margin: 0; }
+.footer-links { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 24px; }
+.footer-links a { display: inline-block; padding-block: 4px; }
+.footer-social { list-style: none; margin: 8px 0 0; padding: 12px 0 0; border-top: 1px solid var(--border); display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 24px; }
+.footer-social a { display: inline-flex; align-items: center; gap: 8px; padding-block: 4px; color: var(--muted); }
+.footer-social a::before {
+  content: ""; width: 20px; height: 20px; flex: none; background: currentColor;
+  -webkit-mask: var(--icon) center / 100% 100% no-repeat; mask: var(--icon) center / 100% 100% no-repeat;
+}
+.s-youtube { --icon: var(--i-youtube); } .s-instagram { --icon: var(--i-instagram); }
+.s-github { --icon: var(--i-github); }   .s-linkedin { --icon: var(--i-linkedin); }
+.footer-social a:hover { color: var(--yellow); }
+
+/* ---------- 8. Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+  .btn:hover { transform: none; }
+}

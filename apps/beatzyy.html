@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Beatzyy — Slowed Reverb Player | HALXNAO</title>
+  <meta name="description" content="Beatzyy is an offline music player for Android that lets you adjust playback speed, apply reverb effects, customize audio and personalize the music playback interface.">
+  <!-- Pages inside /apps use ../ to reach the shared folders -->
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/pages.css">
+  <script src="../js/main.js" defer></script>
+  <script src="../js/pixels.js" defer></script>
+</head>
+<body class="theme-beatzyy">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="wordmark" href="../index.html">HALXNAO</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../index.html#apps" aria-current="page">Apps</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="app-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../index.html#apps">Apps</a></li>
+            <li aria-current="page">Beatzyy</li>
+          </ol>
+        </nav>
+
+        <div class="app-intro">
+          <img class="app-icon" src="../images/beatzyy/icon.png" width="96" height="96" alt="Beatzyy app icon: a golden B with a plus sign on a vinyl record">
+          <h1>Beatzyy</h1>
+          <p class="app-tagline">Slowed Reverb Player</p>
+          <p>Beatzyy is an offline music player for Android that lets you adjust playback speed, apply reverb effects, customize audio and personalize the music playback interface.</p>
+          <ul class="label-row">
+              <li class="label">Android</li>
+              <li class="label label-paid">Paid</li>
+              <li class="label">Google Play</li>
+          </ul>
+            <a class="btn" href="https://play.google.com/store/apps/details?id=com.trgarapps.beatzyy" rel="noopener">Get it on Google Play</a>
+        </div>
+      </div>
+      <!-- Decorative pixel animation, faded into the page by a CSS mask -->
+      <canvas class="pixels band tone-green" data-mode="eq" data-cell="10" aria-hidden="true"></canvas>
+    </section>
+
+    <div class="container">
+
+      <section class="section" aria-labelledby="features-title">
+        <h2 class="section-title" id="features-title">Features</h2>
+        <ul class="feature-list">
+          <li>Slowed playback from 0.65&times; to 1.0&times;.</li>
+          <li>Nightcore playback from 1.15&times; to 1.4&times;.</li>
+          <li>Reverb effects with available presets.</li>
+          <li>10-band equalizer.</li>
+          <li>Word-by-word synchronized lyrics using supported LRC files.</li>
+          <li>Custom Now Playing scenes, including campfire, sakura, windmill and aurora.</li>
+          <li>Album-art-inspired colors and customizable seekbar styles.</li>
+          <li>Offline playback without internet access.</li>
+          <li>No advertisements or tracking.</li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="shots-title">
+        <h2 class="section-title" id="shots-title">Screenshots</h2>
+        <ul class="shot-grid shot-grid-4 shot-grid-tall">
+            <li><figure class="shot"><img src="../images/beatzyy/player.webp" width="313" height="592" loading="lazy" alt="Beatzyy Now Playing screen in a green theme with album art, a waveform seekbar and playback controls"><figcaption>Now Playing</figcaption></figure></li>
+            <li><figure class="shot"><img src="../images/beatzyy/reverb.webp" width="341" height="592" loading="lazy" alt="Beatzyy settings screen with a Reverb Effects card: an enable switch, hall and room presets and a wet mix slider"><figcaption>Reverb Effects</figcaption></figure></li>
+            <li><figure class="shot"><img src="../images/beatzyy/equalizer.webp" width="352" height="592" loading="lazy" alt="Beatzyy 10-band equalizer with sliders from 31 Hz to 16 kHz and a Custom preset label"><figcaption>10-Band Equalizer</figcaption></figure></li>
+            <li><figure class="shot"><img src="../images/beatzyy/speed-pitch.webp" width="260" height="592" loading="lazy" alt="Beatzyy speed and pitch presets: Normal, slowed presets Chill, Dreamy, Ultra Slowed and Extra Slowed, and nightcore presets Lite, Pro and Extreme"><figcaption>Slowed &amp; Nightcore</figcaption></figure></li>
+            <li><figure class="shot"><img src="../images/beatzyy/library.webp" width="723" height="1257" loading="lazy" alt="Beatzyy library screen with search and filters, and a swipe action bar with favorite, queue and add-to-playlist buttons"><figcaption>Library Controls</figcaption></figure></li>
+            <li><figure class="shot"><img src="../images/beatzyy/playlists.webp" width="720" height="1333" loading="lazy" alt="Beatzyy playlist screen showing a playlist named English with Play, shuffle, repeat, select and add songs buttons and a numbered track list"><figcaption>Playlists</figcaption></figure></li>
+            <li><figure class="shot"><img src="../images/beatzyy/visuals.webp" width="740" height="1329" loading="lazy" alt="Beatzyy Now Playing background chooser with Dynamic Colors, Campfire, Sakura Tree and Windmill scenes and Liquid Wave, Waveform and Neon Pulse styles"><figcaption>Now Playing Visuals</figcaption></figure></li>
+        </ul>
+      </section>
+
+      <!-- TODO: replace every https://YOUR_..._LINK below with the real link. Until you do, the button shows as "Coming soon".
+           To switch one off again, add the word data-soon to the <a>. -->
+      <section class="section" aria-labelledby="dl-title">
+        <h2 class="section-title" id="dl-title">Download</h2>
+        <div class="dl-block">
+          <p class="small-note" style="margin:0 0 24px">Beatzyy is a paid app and is available only on Google Play.</p>
+          <div class="dl-group">
+            <p class="dl-label">Official</p>
+            <p class="dl-main-row"><a class="btn dl" href="https://play.google.com/store/apps/details?id=com.trgarapps.beatzyy" rel="noopener">Get it on Google Play</a></p>
+          </div>
+        </div>
+      </section>
+      <section class="section" aria-labelledby="avail-title">
+        <h2 class="section-title" id="avail-title">Availability</h2>
+        <div class="panel">
+          <dl class="facts">
+            <div><dt>Platform</dt><dd>Android</dd></div>
+            <div><dt>Price</dt><dd>Paid application</dd></div>
+            <div><dt>Store</dt><dd>Google Play</dd></div>
+          </dl>
+          <p class="small-note">Looking for the free version? See <a href="beatzyy-free.html">Beatzyy Free Edition</a>.</p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="more-title">
+        <h2 class="section-title" id="more-title">More from HALXNAO</h2>
+        <ul class="link-list">
+          <li><a href="beatzyy-free.html">Beatzyy Free Edition</a></li>
+          <li><a href="swiftx.html">SwiftX &mdash; Encrypted File Transfer</a></li>
+          <li><a href="hibiki.html">Hibiki &mdash; Desktop Player with Audio Effects</a></li>
+          <li><a href="../terms/beatzyy.html">Terms of Service</a></li>
+          <li><a href="../index.html">Back to homepage</a></li>
+        </ul>
+      </section>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year">2026</span> HALXNAO</p>
+      <ul class="footer-links">
+        <li><a href="beatzyy.html">Beatzyy</a></li>
+        <li><a href="beatzyy-free.html">Beatzyy Free</a></li>
+        <li><a href="swiftx.html">SwiftX</a></li>
+        <li><a href="hibiki.html">Hibiki</a></li>
+        <li><a href="../terms/index.html">Terms</a></li>
+      </ul>
+      <!-- TODO: paste your YouTube and LinkedIn URLs in place of YOUR_YOUTUBE_LINK / YOUR_LINKEDIN_LINK. Until then those two are hidden automatically. -->
+      <ul class="footer-social" aria-label="HALXNAO on the web">
+        <li><a class="s-youtube" href="https://YOUR_YOUTUBE_LINK" rel="noopener me">YouTube</a></li>
+        <li><a class="s-instagram" href="https://www.instagram.com/halxnao/" rel="noopener me">Instagram</a></li>
+        <li><a class="s-github" href="https://github.com/halxnao" rel="noopener me">GitHub</a></li>
+        <li><a class="s-linkedin" href="https://YOUR_LINKEDIN_LINK" rel="noopener me">LinkedIn</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>

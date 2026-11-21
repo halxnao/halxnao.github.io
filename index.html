@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HALXNAO — Independent Software</title>
+  <meta name="description" content="HALXNAO is an independent software label creating applications focused on useful features, thoughtful design and fewer unnecessary distractions.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <script src="js/main.js" defer></script>
+  <script src="js/pixels.js" defer></script>
+  <script src="js/cube.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ========== HEADER ========== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="wordmark" href="index.html">HALXNAO</a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="index.html#apps">Apps</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ========== INTRO ==========
+         The canvas is decoration. JavaScript (pixels.js) draws a slow pixel wave
+         in it, and a CSS mask fades it into the background. -->
+    <section class="hero">
+      <!-- The logo: cube.js draws a pixel puzzle cube that scrambles, then solves itself into H A L / X / N A O.
+           Behind it, pixels.js draws a calm twinkling grid that a CSS mask fades out. Both are decoration. -->
+      <div class="hero-stage">
+        <canvas class="pixels hero-bg" data-mode="twinkle" data-palette="#6fb27a,#39c5cf,#7aa2ec" data-cell="10" aria-hidden="true"></canvas>
+        <canvas id="logo-cube" class="logo-cube" role="img" aria-label="HALXNAO logo: a pixel puzzle cube that scrambles and solves itself, ending with the letters H A L, X, N A O"></canvas>
+      </div>
+      <div class="container hero-inner">
+        <h1>HALXNAO</h1>
+        <p class="lede">HALXNAO is an independent software label creating applications focused on useful features, thoughtful design and fewer unnecessary distractions.</p>
+        <a class="btn" href="#apps">View apps</a>
+      </div>
+    </section>
+
+    <!-- ========== APPS ========== -->
+    <section class="section" id="apps" aria-labelledby="apps-title">
+      <div class="container">
+        <h2 class="section-title" id="apps-title">Apps</h2>
+
+        <ul class="app-grid">
+
+          <!-- Card 1: Beatzyy (paid). Equalizer strip. -->
+          <li>
+            <article class="app-card card-beatzyy">
+              <canvas class="pixels card-strip tone-green" data-mode="eq" data-cell="6" aria-hidden="true"></canvas>
+              <div class="card-body">
+                <img class="app-icon" src="images/beatzyy/icon.png" width="56" height="56" alt="Beatzyy app icon: a golden B with a plus sign on a vinyl record">
+                <h3><a href="apps/beatzyy.html">Beatzyy</a></h3>
+                <p class="subtitle">Slowed Reverb Player</p>
+                <p class="desc">An offline music player for Android with adjustable playback speed, reverb effects, an equalizer and customizable Now Playing scenes.</p>
+                <ul class="label-row">
+                  <li class="label">Android</li>
+                  <li class="label label-paid">Paid</li>
+                  <li class="label">Google Play</li>
+                </ul>
+                <p class="more">Details</p>
+              </div>
+            </article>
+          </li>
+
+          <!-- Card 3: SwiftX. File-transfer strip. -->
+          <li>
+            <article class="app-card card-swiftx">
+              <canvas class="pixels card-strip tone-blue" data-mode="transfer" data-cell="6" aria-hidden="true"></canvas>
+              <div class="card-body">
+                <img class="app-icon" src="images/swiftx/icon.png" width="56" height="56" alt="SwiftX app icon: two curved arrows forming an S">
+                <h3><a href="apps/swiftx.html">SwiftX</a></h3>
+                <p class="subtitle">Encrypted File Transfer</p>
+                <p class="desc">Transfer files between compatible devices over a local connection using AES-based encryption. Desktop and command-line versions, with Android coming soon.</p>
+                <ul class="label-row">
+                  <li class="label">Desktop</li>
+                  <li class="label">CLI</li>
+                  <li class="label label-soon">Android soon</li>
+                  <li class="label label-free">GitHub Releases</li>
+                </ul>
+                <p class="more">Details</p>
+              </div>
+            </article>
+          </li>
+
+          <!-- Card 4: Hibiki. Video-player strip. -->
+          <li>
+            <article class="app-card card-hibiki">
+              <canvas class="pixels card-strip tone-violet" data-mode="player" data-cell="6" aria-hidden="true"></canvas>
+              <div class="card-body">
+                <img class="app-icon" src="images/hibiki/icon.png" width="56" height="56" alt="Hibiki app icon: headphones around a play button">
+                <h3><a href="apps/hibiki.html">Hibiki</a></h3>
+                <p class="subtitle">Desktop player with audio effects</p>
+                <p class="desc">A desktop app built with JavaFX that applies Beatzyy-style audio effects in real time to video as well as music, with a built-in audio export section.</p>
+                <ul class="label-row">
+                  <li class="label">Desktop</li>
+                  <li class="label label-free">GitHub Releases</li>
+                </ul>
+                <p class="more">Details</p>
+              </div>
+            </article>
+          </li>
+
+        </ul>
+      </div>
+    </section>
+
+    <!-- ========== UPCOMING ========== -->
+    <section class="section" id="upcoming" aria-labelledby="upcoming-title">
+      <div class="container">
+        <h2 class="section-title" id="upcoming-title">Upcoming</h2>
+        <div class="upcoming-card">
+          <article class="app-card card-free">
+  <canvas class="pixels card-strip tone-cyan" data-mode="eq" data-cell="6" aria-hidden="true"></canvas>
+  <div class="card-body">
+    <img class="app-icon" src="images/beatzyy-free/icon.png" width="56" height="56" alt="Beatzyy Free app icon: a sleeping cat wearing headphones">
+    <h3><a href="apps/beatzyy-free.html">Beatzyy</a></h3>
+    <p class="subtitle">Free Edition</p>
+    <p class="desc">A free Android music player with slowed playback, nightcore and reverb, in an interface inspired by the classic Android Holo design.</p>
+    <ul class="label-row">
+      <li class="label">Android</li>
+      <li class="label label-free">Free</li>
+      <li class="label label-soon">Upcoming</li>
+    </ul>
+    <p class="more">Details</p>
+  </div>
+</article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CONTACT ========== -->
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <h2 class="section-title" id="contact-title">Contact</h2>
+        <div class="contact-box">
+          <p>For questions, send an email:</p>
+          <p><span class="contact-email">halxnao@proton.me</span></p>
+          <a class="btn" href="mailto:halxnao@proton.me">Send email</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year">2026</span> HALXNAO</p>
+      <ul class="footer-links">
+        <li><a href="apps/beatzyy.html">Beatzyy</a></li>
+        <li><a href="apps/beatzyy-free.html">Beatzyy Free</a></li>
+        <li><a href="apps/swiftx.html">SwiftX</a></li>
+        <li><a href="apps/hibiki.html">Hibiki</a></li>
+        <li><a href="terms/index.html">Terms</a></li>
+      </ul>
+      <!-- TODO: paste your YouTube and LinkedIn URLs in place of YOUR_YOUTUBE_LINK / YOUR_LINKEDIN_LINK. Until then those two are hidden automatically. -->
+      <ul class="footer-social" aria-label="HALXNAO on the web">
+        <li><a class="s-youtube" href="https://YOUR_YOUTUBE_LINK" rel="noopener me">YouTube</a></li>
+        <li><a class="s-instagram" href="https://www.instagram.com/halxnao/" rel="noopener me">Instagram</a></li>
+        <li><a class="s-github" href="https://github.com/halxnao" rel="noopener me">GitHub</a></li>
+        <li><a class="s-linkedin" href="https://YOUR_LINKEDIN_LINK" rel="noopener me">LinkedIn</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>
